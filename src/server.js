@@ -23,12 +23,5 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-const mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log('Error: ' + err));
+const connectDB = require('./config/db');
+connectDB();
