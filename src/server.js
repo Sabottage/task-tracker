@@ -6,7 +6,15 @@ const bodyParser = require('body-parser');
 // Load environment variables from .env file
 dotenv.config();
 
+// Connect to database
+const connectDB = require('./config/db');
+connectDB();
+
 const app = express();
+
+// Import and use the routes for CRUD operations
+const taskRoutes = require('./routes/tasks');
+app.use('/tasks', taskRoutes);
 
 // Middleware
 app.use(cors());
@@ -22,6 +30,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
-const connectDB = require('./config/db');
-connectDB();
