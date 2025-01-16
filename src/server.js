@@ -12,13 +12,13 @@ connectDB();
 
 const app = express();
 
+// Middleware
+app.use(cors());
+app.use(express.json());
+
 // Import and use the routes for CRUD operations
 const taskRoutes = require('./routes/tasks');
 app.use('/tasks', taskRoutes);
-
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
 
 // Test Route
 app.get('/', (req, res) => {
