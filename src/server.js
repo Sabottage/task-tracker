@@ -16,14 +16,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files (index.html, style.css, app.js, etc.) from src/client
+app.use(express.static('src/client'));
+
 // Import and use the routes for CRUD operations
 const taskRoutes = require('./routes/tasks');
 app.use('/tasks', taskRoutes);
-
-// Test Route
-app.get('/', (req, res) => {
-    res.send('Welcome to the To-Do List API!');
-});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
