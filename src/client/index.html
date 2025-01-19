@@ -11,14 +11,19 @@
         <form id="task-form" class="mb-4">
             <div class="mb-2">
                 <label for="title" class="block text-sm font-medium">Title:</label>
-                <input type="text" id="title" name="title" class="w-full border border-gray-300 rounded p-2">
+                <input type="text" id="title" name="title" class="w-full border border-gray-300 rounded p-2" required>
             </div>
             <div class="mb-2">
                 <label for="description" class="block text-sm font-medium">Description:</label>
                 <textarea id="description" name="description" class="w-full border border-gray-300 rounded p-2"></textarea>
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
+            <button id="submit-btn" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
         </form>
+
+        <h2 id="task-header" class="text-xl font-semibold mb-4">Task List</h2>
+        <ul id="task-list" class="mt-4">
+            <!-- Task items will be dynamically added here -->
+        </ul>
     </div>
     <script src="app.js"></script>
 </body>
